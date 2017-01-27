@@ -1,6 +1,6 @@
 <?php
 
-namespace TYPO3\OwlSlider\ViewHelpers;
+namespace Comsolit\OwlSlider\ViewHelpers;
 
 class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
 {
@@ -32,7 +32,7 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
         $block = $this->renderChildren();
         $pageRenderer = $this->getPageRenderer();
 
-        $pageRenderer->addJsFooterFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(owl_slider) . 'Resources/Public/owl-carousel/owl.carousel.js', '', $compress, '', '', $excludeFromConcatenation);
+        $pageRenderer->addJsFooterFile(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath(owl_slider) . 'Resources/Public/owl-carousel/owl.carousel.min.js', '', $compress, '', '', $excludeFromConcatenation);
 
         $this->pageRenderer->addJsFooterInlineCode($name, $block, $compress, $forceOnTop);
         return NULL;
@@ -43,6 +43,6 @@ class AddJsFooterInlineCodeViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\A
      */
     private function getPageRenderer()
     {
-        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Page\PageRenderer'); //TODO:change to \TYPO3\CMS\Core\Page\PageRenderer::class since php 5.5
+        return \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Page\PageRenderer');
     }
 }
